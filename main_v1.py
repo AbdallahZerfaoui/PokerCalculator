@@ -38,58 +38,6 @@ def compare(main1,main2,bord):
         if x!=[0]:
             return x
     return [0]
-
-def graphique(h1,h2,bord,Liste,potodds='3 to 1'):
-    #sys.path.append("C:\\Users\\SIMINOV\\Desktop\\Jupyter projects\\Poker\\Cards")
-    fenetre = Tk()#Toplevel()   #ON OUVRE LA FENETRE TKINTER
-    fenetre.title("Poker Calculator")
-    #----#----#----#----#----#----#        les messages fixes           #----#----#----#----#----#----#----#
-    #msg1= Label(fenetre, text ="Poker Calculator", font = "arial 12 bold", fg = "blue").grid(row = 0, columnspan = 2)
-
-    card1_1 = PhotoImage(file ='.\Cards/card_'+h1[0]+'.gif')
-    card1_2 = PhotoImage(file ='.\Cards/card_'+h1[1]+'.gif')
-    card2_1 = PhotoImage(file ='.\Cards/card_'+h2[0]+'.gif')
-    card2_2 = PhotoImage(file ='.\Cards/card_'+h2[1]+'.gif')
-    
-    
-    espace_image1 = Canvas(fenetre, width =100, height =70, bg ='white')
-    espace_image1.grid(row=1 ,columnspan=12, column=3, padx =10, pady =10)
-    espace_image2 = Canvas(fenetre, width =100, height =70, bg ='white')
-    espace_image2.grid(row=3 ,columnspan=12, column=3, padx =10, pady =10)
-
-    espace_image_bord = Canvas(fenetre, width =290, height =70, bg ='dark green')
-    espace_image_bord.grid(row=2 ,columnspan=12, column=3, padx =100, pady =10)
-    
-
-    espace_pourcent = Canvas(fenetre, width =0, height =0, bg ='gray')
-    espace_pourcent.grid(row=1 ,columnspan=1, column=3, padx =10, pady =10)
-    
-    espace_image1.create_image(75, 35, image =card1_1)
-    espace_image1.create_image(25, 35, image =card1_2)
-
-    espace_image2.create_image(75, 35, image =card2_1)
-    espace_image2.create_image(25, 35, image =card2_2)
-    mot={0:"Player 1 :",1:"Split  :",2:"Player 2 :"}
-    for elm in Liste:
-        i=Liste.index(elm)
-        Label(espace_pourcent, text =
-              mot[i]+5*" "+str(Liste[i])+'%', font = "arial 12 bold", fg = "blue").grid(row = i+3, columnspan = 1)
-    
-    Img=[]
-
-    for i in range(len(bord)):
-        bordi=PhotoImage(file ='Cards/card_'+bord[i]+'.gif')
-        Img.append(bordi)
-        
-    for elm in Img:
-        i=Img.index(elm)
-        espace_image_bord.create_image(60*i+25, 35, image = elm)
-    """   
-    #Buttons
-    photo = PhotoImage(file = 'Cards/card_Ah.gif')
-    Button(fenetre, text = 'Click Me !', image = photo).pack(side = TOP)
-    """
-    mainloop ()
     
 
 def main_preflop(main1,main2):
@@ -192,7 +140,7 @@ def main_calculator(main1=[],main2=[],bord=[], step=""):
 #TEST
 
 main1  =['Ah','Kh']
-main2  =['9h','Ks']
+main2  =['Qh','Ks']
 #h1=['Ah','Kd']
 #h2=['Qh','As']
 bord   =['8c','Ks','Kc','Qc','9h']
